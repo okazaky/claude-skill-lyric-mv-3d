@@ -119,6 +119,7 @@ async function video(page: Page, from: number, to: number, fps: number, out: str
   const total = Math.round(to * fps) - Math.round(from * fps);
   const t0 = performance.now();
   const server = Bun.serve({
+    hostname: '127.0.0.1', // loopback only: frames must not be injectable from the LAN
     port: 0,
     fetch(req, srv) { return srv.upgrade(req) ? undefined : new Response('ws only', { status: 400 }); },
     websocket: {
@@ -135,7 +136,7 @@ async function video(page: Page, from: number, to: number, fps: number, out: str
       },
     },
   });
-  const used: Record<string, number> = await page.evaluate((o) => (window as any).__pdoom.stream(o), { from, to, fps, ws: `ws://localhost:${server.port}`, samples: SAMPLES, shutter: +opt('shutter', '0.5')!, inflight: 4 });
+  const used: Record<string, number> = await page.evaluate((o) => (window as any).__pdoom.stream(o), { from, to, fps, ws: `ws://127.0.0.1:${server.port}`, samples: SAMPLES, shutter: +opt('shutter', '0.5')!, inflight: 4 });
   // wait for all frames to arrive
   while (frames < total) await Bun.sleep(20);
   ff.stdin.end();
