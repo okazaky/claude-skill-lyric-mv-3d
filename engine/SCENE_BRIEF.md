@@ -3,7 +3,6 @@
 Project: Japanese song「AIと私」(56 s, 108 BPM), Suno take. Engine = mexicat/pdoom-video (three.js, bun+Vite), 1920x1080.
 Quality bar = the original P(doom) video. LOOK at these before writing anything:
 - <PROJECT>/out/orig_sheet.png  (16 frames of the original)
-- /tmp/reel/sheet.jpg  (the Instagram reel the user wants to match)
 Previous attempt was rejected by the user as "just subtitles". Flat HUD labels + big text on black = FAIL.
 
 ## Read first
