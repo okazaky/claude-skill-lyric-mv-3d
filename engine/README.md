@@ -1,3 +1,5 @@
+> この README は上流 mexicat/pdoom-video の原文です。このリポジトリには `audio/`・`lyrics/`・`data/` と前作の曲データは含まれていません。使い方はリポジトリ直下の README.md を見てください。
+
 # I'm Upping My P(doom) — music video
 
 A generative, code-rendered music video with word-synced karaoke typography. Every frame is a deterministic function of song time, so the live preview in the browser and the offline 1080p60 (or 4K60) export are identical.
